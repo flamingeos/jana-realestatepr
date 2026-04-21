@@ -23,17 +23,17 @@ export default function Navbar() {
     { href: '/contact', label: 'Contact' },
   ]
 
-  const navBg = isHome && !scrolled ? 'bg-transparent' : 'bg-white shadow-sm'
-  const textColor = isHome && !scrolled ? 'text-white' : 'text-slate-900'
-  const logoColor = isHome && !scrolled ? 'text-white' : 'text-slate-900'
+  const isTransparent = isHome && !scrolled
+  const navBg = isTransparent ? 'bg-transparent' : 'bg-white shadow-sm'
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 py-4">
+        <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className={`font-bold text-xl tracking-tight ${logoColor} transition-colors`}>
-            Jana<span style={{color: 'var(--gold)'}}>PR</span>
+          <Link href="/" className="font-bold text-xl tracking-tight">
+            <span style={{ color: isTransparent ? 'white' : '#466D7A' }}>Jana</span>
+            <span style={{ color: '#1EB39F' }}>PR</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -42,17 +42,20 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-all hover:opacity-70 ${textColor} ${
-                  pathname === link.href ? 'opacity-100' : 'opacity-80'
-                }`}
+                className="text-sm font-medium transition-all"
+                style={{
+                  color: pathname === link.href
+                    ? '#1EB39F'
+                    : isTransparent ? 'rgba(255,255,255,0.85)' : '#466D7A',
+                }}
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="text-sm font-semibold px-5 py-2.5 rounded-full transition-all"
-              style={{backgroundColor: 'var(--gold)', color: 'white'}}
+              className="text-sm font-semibold px-5 py-2.5 rounded-full text-white transition-all hover:opacity-90"
+              style={{ backgroundColor: '#EF8853' }}
             >
               Get in Touch
             </Link>
@@ -61,7 +64,8 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`md:hidden p-2 rounded-lg ${textColor}`}
+            className="md:hidden p-2 rounded-lg"
+            style={{ color: isTransparent ? 'white' : '#466D7A' }}
             aria-label="Toggle menu"
           >
             {menuOpen ? (
@@ -79,25 +83,31 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-4">
+        <div className="md:hidden bg-white border-t px-6 py-5 space-y-1" style={{ borderColor: '#F1E7D6' }}>
           {navLinks.map(link => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block text-slate-900 font-medium py-2 hover:text-amber-600 transition-colors"
+              className="block py-3 text-sm font-medium rounded-lg px-3 transition-colors"
+              style={{
+                color: pathname === link.href ? '#1EB39F' : '#466D7A',
+                backgroundColor: pathname === link.href ? '#F1E7D6' : 'transparent',
+              }}
             >
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            onClick={() => setMenuOpen(false)}
-            className="block text-center text-white font-semibold px-5 py-3 rounded-full mt-2"
-            style={{backgroundColor: 'var(--gold)'}}
-          >
-            Get in Touch
-          </Link>
+          <div className="pt-3">
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="block text-center text-white font-semibold px-5 py-3 rounded-full transition-all hover:opacity-90"
+              style={{ backgroundColor: '#EF8853' }}
+            >
+              Get in Touch
+            </Link>
+          </div>
         </div>
       )}
     </nav>

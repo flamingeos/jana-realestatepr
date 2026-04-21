@@ -18,83 +18,86 @@ export default function FilterBar() {
   }, [router, searchParams])
 
   const clearAll = () => router.push('/properties')
-
   const hasFilters = searchParams.toString() !== ''
 
+  const isActive = (key: string, value: string) => {
+    const current = searchParams.get(key)
+    return value === '' ? !current : current === value
+  }
+
   return (
-    <div className="bg-white border border-slate-200 rounded-2xl p-6">
-      <div className="flex items-center justify-between mb-5">
-        <h2 className="font-semibold text-slate-900">Filters</h2>
+    <div className="bg-white rounded-2xl p-6" style={{ border: '1px solid rgba(179,179,179,0.25)' }}>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="font-semibold text-base" style={{ color: '#466D7A' }}>Filtros</h2>
         {hasFilters && (
-          <button onClick={clearAll} className="text-sm text-slate-500 hover:text-red-500 transition-colors">
-            Clear all
+          <button onClick={clearAll} className="text-xs font-medium text-red-400 hover:text-red-600 transition-colors">
+            Limpiar todo
           </button>
         )}
       </div>
 
       {/* Location */}
       <div className="mb-6">
-        <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Location</label>
+        <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#B3B3B3' }}>Ubicación</label>
         <input
           type="text"
-          placeholder="City, neighborhood..."
+          placeholder="Pueblo, barrio..."
           defaultValue={searchParams.get('location') || ''}
           onChange={e => updateFilter('location', e.target.value)}
-          className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent"
+          className="w-full px-4 py-2.5 text-sm rounded-xl border focus:outline-none focus:ring-2 transition-all"
+          style={{ backgroundColor: '#F1E7D6', borderColor: 'rgba(179,179,179,0.3)', color: '#466D7A' }}
         />
       </div>
 
       {/* Price Range */}
       <div className="mb-6">
-        <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Price Range</label>
+        <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#B3B3B3' }}>Rango de Precio</label>
         <div className="space-y-2">
           <select
             defaultValue={searchParams.get('minPrice') || ''}
             onChange={e => updateFilter('minPrice', e.target.value)}
-            className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="w-full px-4 py-2.5 text-sm rounded-xl border focus:outline-none transition-all"
+            style={{ backgroundColor: '#F1E7D6', borderColor: 'rgba(179,179,179,0.3)', color: '#466D7A' }}
           >
-            <option value="">Min Price</option>
+            <option value="">Precio mínimo</option>
+            <option value="50000">$50,000</option>
+            <option value="100000">$100,000</option>
             <option value="200000">$200,000</option>
+            <option value="300000">$300,000</option>
             <option value="400000">$400,000</option>
-            <option value="600000">$600,000</option>
-            <option value="800000">$800,000</option>
-            <option value="1000000">$1,000,000</option>
           </select>
           <select
             defaultValue={searchParams.get('maxPrice') || ''}
             onChange={e => updateFilter('maxPrice', e.target.value)}
-            className="w-full px-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="w-full px-4 py-2.5 text-sm rounded-xl border focus:outline-none transition-all"
+            style={{ backgroundColor: '#F1E7D6', borderColor: 'rgba(179,179,179,0.3)', color: '#466D7A' }}
           >
-            <option value="">Max Price</option>
+            <option value="">Precio máximo</option>
+            <option value="150000">$150,000</option>
+            <option value="300000">$300,000</option>
+            <option value="400000">$400,000</option>
             <option value="500000">$500,000</option>
             <option value="750000">$750,000</option>
-            <option value="1000000">$1,000,000</option>
-            <option value="1500000">$1,500,000</option>
-            <option value="2000000">$2,000,000</option>
           </select>
         </div>
       </div>
 
       {/* Bedrooms */}
       <div className="mb-6">
-        <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Bedrooms</label>
+        <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#B3B3B3' }}>Habitaciones</label>
         <div className="flex gap-2 flex-wrap">
           {['', '1', '2', '3', '4', '5'].map(num => (
             <button
               key={num}
               onClick={() => updateFilter('bedrooms', num)}
-              className={`px-4 py-2 text-sm rounded-xl border transition-all ${
-                searchParams.get('bedrooms') === num || (!searchParams.get('bedrooms') && num === '')
-                  ? 'text-white border-transparent'
-                  : 'text-slate-700 border-slate-200 bg-white hover:border-amber-400'
-              }`}
+              className="px-3.5 py-2 text-sm rounded-xl border transition-all font-medium"
               style={
-                searchParams.get('bedrooms') === num || (!searchParams.get('bedrooms') && num === '')
-                  ? { backgroundColor: 'var(--gold)' }
-                  : {}
+                isActive('bedrooms', num)
+                  ? { backgroundColor: '#1EB39F', color: 'white', borderColor: '#1EB39F' }
+                  : { backgroundColor: '#F1E7D6', color: '#466D7A', borderColor: 'rgba(179,179,179,0.3)' }
               }
             >
-              {num === '' ? 'Any' : `${num}+`}
+              {num === '' ? 'Todas' : `${num}+`}
             </button>
           ))}
         </div>
@@ -102,24 +105,27 @@ export default function FilterBar() {
 
       {/* Property Type */}
       <div>
-        <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Property Type</label>
-        <div className="space-y-2">
-          {['', 'house', 'condo', 'villa', 'apartment', 'townhome', 'estate'].map(type => (
+        <label className="block text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#B3B3B3' }}>Tipo de Propiedad</label>
+        <div className="space-y-1.5">
+          {[
+            { value: '', label: 'Todos los tipos' },
+            { value: 'house', label: 'Casa' },
+            { value: 'condo', label: 'Condominio' },
+            { value: 'land', label: 'Terreno / Solar' },
+            { value: 'multi-family', label: 'Multifamiliar' },
+            { value: 'commercial', label: 'Comercial' },
+          ].map(({ value, label }) => (
             <button
-              key={type}
-              onClick={() => updateFilter('propertyType', type)}
-              className={`w-full text-left px-4 py-2.5 text-sm rounded-xl transition-all capitalize ${
-                searchParams.get('propertyType') === type || (!searchParams.get('propertyType') && type === '')
-                  ? 'text-white'
-                  : 'text-slate-700 bg-slate-50 hover:bg-slate-100'
-              }`}
+              key={value}
+              onClick={() => updateFilter('propertyType', value)}
+              className="w-full text-left px-4 py-2.5 text-sm rounded-xl transition-all font-medium"
               style={
-                searchParams.get('propertyType') === type || (!searchParams.get('propertyType') && type === '')
-                  ? { backgroundColor: 'var(--gold)' }
-                  : {}
+                isActive('propertyType', value)
+                  ? { backgroundColor: '#1EB39F', color: 'white' }
+                  : { backgroundColor: '#F1E7D6', color: '#466D7A' }
               }
             >
-              {type === '' ? 'All Types' : type}
+              {label}
             </button>
           ))}
         </div>

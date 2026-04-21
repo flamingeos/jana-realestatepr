@@ -35,19 +35,20 @@ export default async function PropertiesPage({
   searchParams: Promise<SearchParams>
 }) {
   const params = await searchParams
-
   const hasFilters = Object.values(params).some(Boolean)
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-slate-900 pt-28 pb-12 px-6">
+      <div className="pt-28 pb-12 px-6" style={{ backgroundColor: '#466D7A' }}>
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-white tracking-tight">
-            {hasFilters ? 'Search Results' : 'All Properties'}
+            {hasFilters ? 'Resultados de Búsqueda' : 'Todas las Propiedades'}
           </h1>
-          <p className="mt-2 text-slate-400">
-            {hasFilters ? 'Properties matching your criteria' : 'Browse our full portfolio of properties across Puerto Rico'}
+          <p className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>
+            {hasFilters
+              ? 'Propiedades que coinciden con tu búsqueda'
+              : 'Explora nuestro portafolio completo en el occidente de Puerto Rico'}
           </p>
         </div>
       </div>
@@ -69,7 +70,7 @@ export default async function PropertiesPage({
               fallback={
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {Array.from({ length: 6 }).map((_, i) => (
-                    <div key={i} className="h-72 bg-slate-200 rounded-2xl animate-pulse" />
+                    <div key={i} className="h-72 rounded-2xl animate-pulse" style={{ backgroundColor: '#F1E7D6' }} />
                   ))}
                 </div>
               }

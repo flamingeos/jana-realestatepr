@@ -2,8 +2,14 @@
 
 @layer base {
   :root {
-    --gold: #B5963E;
-    --gold-light: #D4B86A;
+    --teal: #1EB39F;
+    --teal-dark: #178a79;
+    --orange: #EF8853;
+    --orange-dark: #d9703e;
+    --dark: #466D7A;
+    --dark-deeper: #344f59;
+    --beige: #F1E7D6;
+    --cement: #B3B3B3;
   }
 
   html {
@@ -22,19 +28,13 @@
 }
 
 @layer utilities {
-  .text-gold {
-    color: var(--gold);
-  }
-  .bg-gold {
-    background-color: var(--gold);
-  }
-  .border-gold {
-    border-color: var(--gold);
-  }
-  .hover\:bg-gold:hover {
-    background-color: var(--gold);
-  }
-  .hover\:text-gold:hover {
-    color: var(--gold);
-  }
+  .text-teal { color: var(--teal); }
+  .bg-teal { background-color: var(--teal); }
+  .border-teal { border-color: var(--teal); }
+  .text-orange { color: var(--orange); }
+  .bg-orange { background-color: var(--orange); }
+  .text-dark { color: var(--dark); }
+  .bg-dark { background-color: var(--dark); }
+  .bg-beige { background-color: var(--beige); }
+  .text-cement { color: var(--cement); }
 }

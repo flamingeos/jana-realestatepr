@@ -14,7 +14,7 @@ export default function LeadForm({
   propertyId,
   assignedAgent,
   title = 'Get in Touch',
-  subtitle = 'Fill out the form and we\'ll get back to you within 24 hours.',
+  subtitle = "Fill out the form and we'll get back to you within 24 hours.",
   variant = 'default',
 }: LeadFormProps) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -42,25 +42,32 @@ export default function LeadForm({
   }
 
   const isDark = variant === 'dark'
-  const inputClass = `w-full px-4 py-3 text-sm rounded-xl border focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all ${
-    isDark
-      ? 'bg-white/10 border-white/20 text-white placeholder-white/50'
-      : 'bg-slate-50 border-slate-200 text-slate-900 placeholder-slate-400'
-  }`
-  const labelClass = `block text-xs font-semibold uppercase tracking-wider mb-1.5 ${isDark ? 'text-white/70' : 'text-slate-500'}`
+
+  const inputStyle = isDark
+    ? { backgroundColor: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.2)', color: 'white' }
+    : { backgroundColor: '#F1E7D6', borderColor: 'rgba(179,179,179,0.4)', color: '#466D7A' }
+
+  const labelColor = isDark ? 'rgba(255,255,255,0.65)' : '#466D7A'
+  const inputClass = 'w-full px-4 py-3 text-sm rounded-xl border focus:outline-none focus:ring-2 transition-all placeholder:opacity-50'
 
   if (status === 'success') {
     return (
       <div className="text-center py-12">
-        <div className="text-5xl mb-4">✅</div>
-        <h3 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>Message Received!</h3>
-        <p className={`mt-2 ${isDark ? 'text-white/70' : 'text-slate-500'}`}>We&apos;ll reach out to you within 24 hours.</p>
+        <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: '#1EB39F' }}>
+          <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 className="text-xl font-bold" style={{ color: isDark ? 'white' : '#466D7A' }}>¡Mensaje Recibido!</h3>
+        <p className="mt-2 text-sm" style={{ color: isDark ? 'rgba(255,255,255,0.65)' : '#B3B3B3' }}>
+          Nos pondremos en contacto contigo en menos de 24 horas.
+        </p>
         <button
           onClick={() => setStatus('idle')}
           className="mt-6 text-sm underline opacity-70 hover:opacity-100 transition-opacity"
-          style={{color: 'var(--gold)'}}
+          style={{ color: '#1EB39F' }}
         >
-          Send another message
+          Enviar otro mensaje
         </button>
       </div>
     )
@@ -69,74 +76,60 @@ export default function LeadForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {title && (
-        <div className="mb-6">
-          <h3 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
-          {subtitle && <p className={`mt-1 text-sm ${isDark ? 'text-white/70' : 'text-slate-500'}`}>{subtitle}</p>}
+        <div className="mb-5">
+          <h3 className="text-xl font-bold" style={{ color: isDark ? 'white' : '#466D7A' }}>{title}</h3>
+          {subtitle && <p className="mt-1 text-sm" style={{ color: isDark ? 'rgba(255,255,255,0.65)' : '#B3B3B3' }}>{subtitle}</p>}
         </div>
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className={labelClass}>Name *</label>
+          <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: labelColor }}>Nombre *</label>
           <input
-            required
-            type="text"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            placeholder="Your full name"
-            className={inputClass}
+            required type="text" name="name" value={form.name} onChange={handleChange}
+            placeholder="Tu nombre completo"
+            className={inputClass} style={inputStyle}
           />
         </div>
         <div>
-          <label className={labelClass}>Email *</label>
+          <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: labelColor }}>Email *</label>
           <input
-            required
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="your@email.com"
-            className={inputClass}
+            required type="email" name="email" value={form.email} onChange={handleChange}
+            placeholder="tu@email.com"
+            className={inputClass} style={inputStyle}
           />
         </div>
       </div>
 
       <div>
-        <label className={labelClass}>Phone</label>
+        <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: labelColor }}>Teléfono</label>
         <input
-          type="tel"
-          name="phone"
-          value={form.phone}
-          onChange={handleChange}
-          placeholder="+1 (787) 000-0000"
-          className={inputClass}
+          type="tel" name="phone" value={form.phone} onChange={handleChange}
+          placeholder="(787) 000-0000"
+          className={inputClass} style={inputStyle}
         />
       </div>
 
       <div>
-        <label className={labelClass}>Message</label>
+        <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: labelColor }}>Mensaje</label>
         <textarea
-          name="message"
-          value={form.message}
-          onChange={handleChange}
-          placeholder="Tell us what you're looking for..."
-          rows={4}
-          className={inputClass}
+          name="message" value={form.message} onChange={handleChange}
+          placeholder="¿Qué estás buscando?"
+          rows={4} className={inputClass} style={inputStyle}
         />
       </div>
 
       {status === 'error' && (
-        <p className="text-red-500 text-sm">Something went wrong. Please try again.</p>
+        <p className="text-red-400 text-sm">Algo salió mal. Por favor intenta de nuevo.</p>
       )}
 
       <button
         type="submit"
         disabled={status === 'loading'}
         className="w-full py-4 text-white font-semibold rounded-xl transition-all hover:opacity-90 active:scale-[0.99] disabled:opacity-60"
-        style={{backgroundColor: 'var(--gold)'}}
+        style={{ backgroundColor: '#EF8853' }}
       >
-        {status === 'loading' ? 'Sending...' : 'Send Message'}
+        {status === 'loading' ? 'Enviando...' : 'Enviar Mensaje'}
       </button>
     </form>
   )

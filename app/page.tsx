@@ -7,32 +7,32 @@ import LeadForm from '@/components/LeadForm'
 import { Property } from '@/types'
 
 const stats = [
-  { value: '11', label: 'Closed Sales' },
-  { value: '$2M+', label: 'Total Volume' },
-  { value: '~$180K', label: 'Avg. Sale Price' },
-  { value: '2+', label: 'Years in PR' },
+  { value: '11', label: 'Ventas Cerradas' },
+  { value: '$2M+', label: 'Volumen Total' },
+  { value: '~$180K', label: 'Precio Promedio' },
+  { value: '2+', label: 'Años en PR' },
 ]
 
 const features = [
   {
     icon: '🏡',
-    title: 'Western PR Specialists',
-    description: 'Deep knowledge of Moca, San Sebastián, Isabela, Aguada, Mayagüez and surrounding western municipalities.',
+    title: 'Especialistas en el Oeste',
+    description: 'Conocimiento profundo de Moca, San Sebastián, Isabela, Aguada, Mayagüez y municipios del occidente.',
   },
   {
     icon: '🤝',
-    title: 'MLS Registered Office',
-    description: 'Officially registered with Puerto Rico Realtors® MLS (Office #436), giving buyers access to the full market.',
+    title: 'Oficina MLS Registrada',
+    description: 'Registrados oficialmente en el Puerto Rico Realtors® MLS (Oficina #436) con acceso completo al mercado.',
   },
   {
     icon: '📋',
-    title: 'ClasificadosOnline Partner',
-    description: 'Verified partner since 2022 — your listing reaches thousands of buyers across Puerto Rico\'s top portal.',
+    title: 'Partner ClasificadosOnline',
+    description: 'Verificados desde 2022 — tu propiedad llega a miles de compradores en el portal líder de Puerto Rico.',
   },
   {
     icon: '🔒',
-    title: 'Licensed & Trusted',
-    description: 'José L. González Reyes, Lic. C21635. JANA REAL ESTATE LLC — regulated by the Puerto Rico Dept. of State.',
+    title: 'Licenciados y Confiables',
+    description: 'José L. González Reyes, Lic. C21635. JANA REAL ESTATE LLC — regulado por el Depto. de Estado de PR.',
   },
 ]
 
@@ -46,38 +46,43 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1800&q=80"
-          alt="Luxury property in Puerto Rico"
-          fill
-          priority
+          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1800&q=80"
+          alt="Propiedad en Puerto Rico"
+          fill priority
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(70,109,122,0.75) 0%, rgba(70,109,122,0.55) 40%, rgba(70,109,122,0.80) 100%)' }}
+        />
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase mb-6 px-4 py-2 rounded-full border border-white/30 text-white/80 backdrop-blur-sm">
-            Western Puerto Rico Real Estate Specialists
+          <span
+            className="inline-block text-xs font-semibold tracking-widest uppercase mb-6 px-4 py-2 rounded-full border text-white/80"
+            style={{ borderColor: 'rgba(255,255,255,0.3)', backdropFilter: 'blur(8px)' }}
+          >
+            Especialistas en el Oeste de Puerto Rico
           </span>
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight">
-            Find Your Home<br />
-            <span style={{color: 'var(--gold-light)'}}>in Western PR</span>
+            Encuentra tu Hogar<br />
+            <span style={{ color: '#1EB39F' }}>en el Oeste de PR</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Houses, land, and investment properties in Moca, San Sebastián, Isabela, Aguada, Mayagüez and surrounding towns. MLS registered · ClasificadosOnline partner since 2022.
+            Casas, terrenos y propiedades de inversión en Moca, San Sebastián, Isabela, Aguada, Mayagüez y más. MLS registrado · Partner ClasificadosOnline desde 2022.
           </p>
 
           <div className="mt-10">
             <SearchBar />
           </div>
 
-          <div className="mt-8 flex flex-wrap justify-center gap-6">
+          <div className="mt-8 flex flex-wrap justify-center gap-8">
             {stats.map(stat => (
               <div key={stat.label} className="text-center">
-                <p className="text-2xl font-bold text-white" style={{color: 'var(--gold-light)'}}>{stat.value}</p>
+                <p className="text-2xl font-bold" style={{ color: '#1EB39F' }}>{stat.value}</p>
                 <p className="text-xs text-white/60 mt-0.5">{stat.label}</p>
               </div>
             ))}
@@ -85,7 +90,7 @@ export default async function HomePage() {
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -93,21 +98,23 @@ export default async function HomePage() {
 
       {/* Featured Listings */}
       {featuredProperties.length > 0 && (
-        <section className="py-24 px-6 bg-slate-50">
+        <section className="py-24 px-6" style={{ backgroundColor: '#F1E7D6' }}>
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
               <div>
-                <span className="text-xs font-semibold tracking-widest uppercase" style={{color: 'var(--gold)'}}>
-                  Handpicked for You
+                <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: '#1EB39F' }}>
+                  Seleccionadas para Ti
                 </span>
-                <h2 className="mt-2 text-4xl font-bold text-slate-900 tracking-tight">Featured Properties</h2>
+                <h2 className="mt-2 text-4xl font-bold tracking-tight" style={{ color: '#466D7A' }}>
+                  Propiedades Destacadas
+                </h2>
               </div>
               <Link
                 href="/properties"
-                className="mt-4 md:mt-0 text-sm font-semibold flex items-center gap-2 hover:gap-3 transition-all"
-                style={{color: 'var(--gold)'}}
+                className="mt-4 md:mt-0 text-sm font-semibold flex items-center gap-2 transition-all hover:gap-3"
+                style={{ color: '#1EB39F' }}
               >
-                View all listings
+                Ver todas las propiedades
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -126,26 +133,35 @@ export default async function HomePage() {
       <section className="py-24 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{color: 'var(--gold)'}}>
-              Why Jana RealestatePR
+            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: '#1EB39F' }}>
+              Por qué Jana RealestatePR
             </span>
-            <h2 className="mt-2 text-4xl font-bold text-slate-900 tracking-tight">
-              Your Local Experts in Western Puerto Rico
+            <h2 className="mt-2 text-4xl font-bold tracking-tight" style={{ color: '#466D7A' }}>
+              Tus Expertos Locales en el Oeste de PR
             </h2>
-            <p className="mt-4 text-slate-500 max-w-xl mx-auto">
-              Jana Real Estate LLC specializes in Moca, San Sebastián, Isabela, Aguada, Añasco, Mayagüez, Hatillo and Arecibo — with MLS access and a proven track record.
+            <p className="mt-4 max-w-xl mx-auto text-sm leading-relaxed" style={{ color: '#B3B3B3' }}>
+              Jana Real Estate LLC se especializa en Moca, San Sebastián, Isabela, Aguada, Añasco, Mayagüez, Hatillo y Arecibo — con acceso MLS y un historial probado.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map(feature => (
               <div
                 key={feature.title}
-                className="group p-8 rounded-2xl border border-slate-100 hover:border-amber-200 hover:shadow-lg transition-all duration-300 text-center"
+                className="group p-8 rounded-2xl text-center transition-all duration-300 cursor-default"
+                style={{ border: '1px solid rgba(179,179,179,0.25)', backgroundColor: 'white' }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLDivElement).style.backgroundColor = '#F1E7D6'
+                  ;(e.currentTarget as HTMLDivElement).style.borderColor = '#1EB39F'
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLDivElement).style.backgroundColor = 'white'
+                  ;(e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(179,179,179,0.25)'
+                }}
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="font-bold text-slate-900 mb-2">{feature.title}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed">{feature.description}</p>
+                <h3 className="font-bold mb-2 text-sm" style={{ color: '#466D7A' }}>{feature.title}</h3>
+                <p className="text-xs leading-relaxed" style={{ color: '#B3B3B3' }}>{feature.description}</p>
               </div>
             ))}
           </div>
@@ -153,42 +169,60 @@ export default async function HomePage() {
       </section>
 
       {/* CTA / Lead Capture */}
-      <section className="py-24 px-6 bg-slate-900">
+      <section className="py-24 px-6" style={{ backgroundColor: '#466D7A' }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase" style={{color: 'var(--gold)'}}>
-                Ready to Start?
+              <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: '#1EB39F' }}>
+                ¿Listo para Comenzar?
               </span>
               <h2 className="mt-3 text-4xl font-bold text-white tracking-tight leading-tight">
-                Let&apos;s Find Your Perfect Property Together
+                Encontremos Tu Propiedad Ideal Juntos
               </h2>
-              <p className="mt-4 text-slate-400 leading-relaxed">
-                Whether you&apos;re buying, selling, or investing — our team is ready to guide you. Leave your details and we&apos;ll connect you with the right specialist.
+              <p className="mt-4 leading-relaxed text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>
+                Ya sea comprando, vendiendo o invirtiendo — nuestro equipo está listo para guiarte. Déjanos tus datos y te conectamos con el especialista correcto.
               </p>
               <div className="mt-8 space-y-4">
                 {[
-                  'Free property consultation',
-                  'No-obligation market analysis',
-                  'Dedicated agent assigned to you',
+                  'Consulta de propiedad gratuita',
+                  'Análisis de mercado sin compromiso',
+                  'Agente dedicado asignado a ti',
                 ].map(item => (
-                  <div key={item} className="flex items-center gap-3 text-slate-300">
-                    <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: 'var(--gold)'}}>
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#1EB39F' }}>
                       <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="text-sm">{item}</span>
+                    <span className="text-sm" style={{ color: 'rgba(255,255,255,0.8)' }}>{item}</span>
                   </div>
                 ))}
               </div>
+
+              {/* Quick contact */}
+              <div className="mt-10 flex flex-wrap gap-3">
+                <a href="tel:+17876242956"
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl text-white text-sm font-semibold transition-all hover:opacity-90"
+                  style={{ backgroundColor: '#1EB39F' }}>
+                  📞 (787) 624-2956
+                </a>
+                <a href="tel:+19394383061"
+                  className="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.15)', color: 'white' }}>
+                  📞 (939) 438-3061
+                </a>
+              </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            <div
+              className="rounded-2xl p-8"
+              style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
+            >
               <LeadForm
                 variant="dark"
-                title="Get a Free Consultation"
-                subtitle="Our team typically responds within 2 hours."
+                title="Consulta Gratuita"
+                subtitle="Nuestro equipo responde en menos de 2 horas."
+                assignedAgent="José L. González Reyes"
               />
             </div>
           </div>
