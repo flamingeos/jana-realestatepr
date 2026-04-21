@@ -4,6 +4,7 @@ import { getFeaturedProperties } from '@/lib/properties'
 import PropertyCard from '@/components/PropertyCard'
 import SearchBar from '@/components/SearchBar'
 import LeadForm from '@/components/LeadForm'
+import FeatureCard from '@/components/FeatureCard'
 import { Property } from '@/types'
 
 const stats = [
@@ -146,24 +147,12 @@ export default async function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map(feature => (
-              <div
+              <FeatureCard
                 key={feature.title}
-                className="group p-8 rounded-2xl text-center transition-all duration-300 cursor-default"
-                style={{ border: '1px solid rgba(179,179,179,0.25)', backgroundColor: 'white' }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLDivElement).style.backgroundColor = '#F1E7D6'
-                  ;(e.currentTarget as HTMLDivElement).style.borderColor = '#1EB39F'
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLDivElement).style.backgroundColor = 'white'
-                  ;(e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(179,179,179,0.25)'
-                }}
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="font-bold mb-2 text-sm" style={{ color: '#466D7A' }}>{feature.title}</h3>
-                <p className="text-xs leading-relaxed" style={{ color: '#B3B3B3' }}>{feature.description}</p>
-              </div>
-            ))}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+              />
           </div>
         </div>
       </section>
