@@ -7,32 +7,32 @@ import LeadForm from '@/components/LeadForm'
 import { Property } from '@/types'
 
 const stats = [
-  { value: '500+', label: 'Properties Sold' },
-  { value: '$2B+', label: 'Total Volume' },
-  { value: '98%', label: 'Client Satisfaction' },
-  { value: '15+', label: 'Years Experience' },
+  { value: '11', label: 'Closed Sales' },
+  { value: '$2M+', label: 'Total Volume' },
+  { value: '~$180K', label: 'Avg. Sale Price' },
+  { value: '2+', label: 'Years in PR' },
 ]
 
 const features = [
   {
-    icon: '🏆',
-    title: 'Exclusive Listings',
-    description: 'Access to off-market and exclusive properties not found anywhere else in Puerto Rico.',
+    icon: '🏡',
+    title: 'Western PR Specialists',
+    description: 'Deep knowledge of Moca, San Sebastián, Isabela, Aguada, Mayagüez and surrounding western municipalities.',
   },
   {
     icon: '🤝',
-    title: 'Expert Guidance',
-    description: 'Our certified agents provide personalized guidance through every step of the process.',
+    title: 'MLS Registered Office',
+    description: 'Officially registered with Puerto Rico Realtors® MLS (Office #436), giving buyers access to the full market.',
   },
   {
-    icon: '📊',
-    title: 'Market Intelligence',
-    description: 'Data-driven insights and market analysis to help you make informed decisions.',
+    icon: '📋',
+    title: 'ClasificadosOnline Partner',
+    description: 'Verified partner since 2022 — your listing reaches thousands of buyers across Puerto Rico\'s top portal.',
   },
   {
     icon: '🔒',
-    title: 'Trusted & Secure',
-    description: 'Licensed and regulated, ensuring every transaction is safe, transparent, and protected.',
+    title: 'Licensed & Trusted',
+    description: 'José L. González Reyes, Lic. C21635. JANA REAL ESTATE LLC — regulated by the Puerto Rico Dept. of State.',
   },
 ]
 
@@ -60,14 +60,14 @@ export default async function HomePage() {
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase mb-6 px-4 py-2 rounded-full border border-white/30 text-white/80 backdrop-blur-sm">
-            Puerto Rico&apos;s Premier Real Estate
+            Western Puerto Rico Real Estate Specialists
           </span>
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight">
-            Find Your Dream<br />
-            <span style={{color: 'var(--gold-light)'}}>Property in PR</span>
+            Find Your Home<br />
+            <span style={{color: 'var(--gold-light)'}}>in Western PR</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Discover luxury homes, waterfront villas, and investment properties across Puerto Rico&apos;s most sought-after locations.
+            Houses, land, and investment properties in Moca, San Sebastián, Isabela, Aguada, Mayagüez and surrounding towns. MLS registered · ClasificadosOnline partner since 2022.
           </p>
 
           <div className="mt-10">
@@ -130,10 +130,10 @@ export default async function HomePage() {
               Why Jana RealestatePR
             </span>
             <h2 className="mt-2 text-4xl font-bold text-slate-900 tracking-tight">
-              The Standard in Luxury Real Estate
+              Your Local Experts in Western Puerto Rico
             </h2>
             <p className="mt-4 text-slate-500 max-w-xl mx-auto">
-              We combine deep local expertise with world-class service to deliver an unparalleled real estate experience.
+              Jana Real Estate LLC specializes in Moca, San Sebastián, Isabela, Aguada, Añasco, Mayagüez, Hatillo and Arecibo — with MLS access and a proven track record.
             </p>
           </div>
 

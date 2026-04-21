@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 interface LeadFormProps {
   propertyId?: string
+  assignedAgent?: string
   title?: string
   subtitle?: string
   variant?: 'default' | 'dark'
@@ -11,6 +12,7 @@ interface LeadFormProps {
 
 export default function LeadForm({
   propertyId,
+  assignedAgent,
   title = 'Get in Touch',
   subtitle = 'Fill out the form and we\'ll get back to you within 24 hours.',
   variant = 'default',
@@ -29,7 +31,7 @@ export default function LeadForm({
       const res = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, propertyId }),
+        body: JSON.stringify({ ...form, propertyId, assignedAgent }),
       })
       if (!res.ok) throw new Error('Failed')
       setStatus('success')

@@ -24,11 +24,12 @@ model Property {
 }
 
 model Lead {
-  id        String   @id @default(cuid())
-  name      String
-  email     String
-  phone     String?
-  message   String?
-  propertyId String?
-  createdAt DateTime @default(now())
+  id             String   @id @default(cuid())
+  name           String
+  email          String
+  phone          String?
+  message        String?
+  propertyId     String?
+  assignedAgent  String?
+  createdAt      DateTime @default(now())
 }

@@ -1,10 +1,10 @@
 import LeadForm from '@/components/LeadForm'
 
 const contactInfo = [
-  { icon: '📞', label: 'Phone', value: '+1 (787) 555-0100', href: 'tel:+17875550100' },
-  { icon: '✉️', label: 'Email', value: 'hello@janarealestate.pr', href: 'mailto:hello@janarealestate.pr' },
-  { icon: '📍', label: 'Office', value: 'San Juan, Puerto Rico', href: null },
-  { icon: '🕐', label: 'Hours', value: 'Mon–Sat, 9am – 6pm', href: null },
+  { icon: '📞', label: 'José (Main)', value: '(787) 624-2956', href: 'tel:+17876242956' },
+  { icon: '📞', label: 'Secondary', value: '(939) 438-3061', href: 'tel:+19394383061' },
+  { icon: '📍', label: 'Address', value: 'HC 05 Box 10620, Moca, PR 00676', href: null },
+  { icon: '🕐', label: 'Hours', value: 'Mon–Sat, 8am – 7pm', href: null },
 ]
 
 export default function ContactPage() {
@@ -18,7 +18,7 @@ export default function ContactPage() {
           </span>
           <h1 className="mt-3 text-5xl font-bold text-white tracking-tight">Get in Touch</h1>
           <p className="mt-4 text-slate-400 text-lg">
-            Ready to find your dream property or need expert advice? Our team is standing by.
+            Specialists in western Puerto Rico. Serving Moca, San Sebastián, Isabela, Aguada, Mayagüez and surrounding towns.
           </p>
         </div>
       </div>
@@ -62,7 +62,11 @@ export default function ContactPage() {
             <LeadForm
               title="Send Us a Message"
               subtitle="Fill out the form and we'll get back to you within 24 hours."
+              assignedAgent="José L. González Reyes"
             />
+            <p className="mt-6 text-xs text-slate-400 text-center">
+              José L. González Reyes, Lic. C21635 &nbsp;·&nbsp; JANA REAL ESTATE LLC &nbsp;·&nbsp; MLS Office #436
+            </p>
           </div>
         </div>
       </div>
