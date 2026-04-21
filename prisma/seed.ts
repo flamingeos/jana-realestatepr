@@ -1,6 +1,13 @@
+import { config } from 'dotenv'
+config({ path: '.env.local' })
+config({ path: '.env' })
+
+import { PrismaNeonHttp } from '@prisma/adapter-neon'
 import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient()
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const adapter = new PrismaNeonHttp(process.env.DATABASE_URL!, {} as any)
+const prisma = new PrismaClient({ adapter })
 
 const properties = [
   {

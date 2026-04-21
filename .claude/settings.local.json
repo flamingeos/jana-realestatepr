@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(rm README.md)",
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npm install:*)",
+      "Bash(npx prisma:*)",
+      "Bash(mkdir -p \"C:/Users/ughty/OneDrive/Desktop/jana-realestatepr/app/properties/[id]\")",
+      "Bash(mkdir -p \"C:/Users/ughty/OneDrive/Desktop/jana-realestatepr/app/api/properties/[id]\")",
+      "Bash(npm list:*)",
+      "Bash(node:*)"
     ]
   }
 }
