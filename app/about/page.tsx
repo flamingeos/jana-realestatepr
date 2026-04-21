@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import LeadForm from '@/components/LeadForm'
 
 const agentStats = [
@@ -60,15 +61,17 @@ export default function AboutPage() {
       {/* Lead Agent */}
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Photo placeholder */}
+          {/* Photo */}
           <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 rounded-full bg-slate-200 flex items-center justify-center mx-auto text-4xl">
-                  👤
-                </div>
-                <p className="mt-4 text-slate-400 text-sm">Agent photo coming soon</p>
-              </div>
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100">
+              <Image
+                src="/jose-gonzalez.png"
+                alt="José L. González Reyes — Jana Real Estate PR"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
             </div>
             {/* License badge */}
             <div className="absolute -bottom-4 -right-4 bg-white border border-slate-200 rounded-xl px-5 py-3 shadow-lg">
@@ -157,8 +160,18 @@ export default function AboutPage() {
                 }`}
               >
                 {/* Avatar */}
-                <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-2xl mb-4">
-                  👤
+                <div className="w-16 h-16 rounded-full overflow-hidden bg-slate-100 mb-4">
+                  {member.primary ? (
+                    <Image
+                      src="/jose-gonzalez.png"
+                      alt={member.name}
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-2xl">👤</div>
+                  )}
                 </div>
 
                 {member.primary && (
