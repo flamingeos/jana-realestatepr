@@ -8,7 +8,8 @@
       "Bash(mkdir -p \"C:/Users/ughty/OneDrive/Desktop/jana-realestatepr/app/properties/[id]\")",
       "Bash(mkdir -p \"C:/Users/ughty/OneDrive/Desktop/jana-realestatepr/app/api/properties/[id]\")",
       "Bash(npm list:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

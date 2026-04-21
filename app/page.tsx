@@ -153,6 +153,7 @@ export default async function HomePage() {
                 title={feature.title}
                 description={feature.description}
               />
+            ))}
           </div>
         </div>
       </section>
