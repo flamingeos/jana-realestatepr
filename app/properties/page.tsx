@@ -45,7 +45,7 @@ export default async function PropertiesPage({
           <h1 className="text-4xl font-bold text-white tracking-tight">
             {hasFilters ? 'Resultados de Búsqueda' : 'Todas las Propiedades'}
           </h1>
-          <p className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>
+          <p className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.90)' }}>
             {hasFilters
               ? 'Propiedades que coinciden con tu búsqueda'
               : 'Explora nuestro portafolio completo en el occidente de Puerto Rico'}

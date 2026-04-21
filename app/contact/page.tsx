@@ -17,7 +17,7 @@ export default function ContactPage() {
             Estamos Para Ayudarte
           </span>
           <h1 className="mt-3 text-5xl font-bold text-white tracking-tight">Contáctanos</h1>
-          <p className="mt-4 text-lg" style={{ color: 'rgba(255,255,255,0.65)' }}>
+          <p className="mt-4 text-lg" style={{ color: 'rgba(255,255,255,0.90)' }}>
             Especialistas en el occidente de Puerto Rico. Moca, San Sebastián, Isabela, Aguada, Mayagüez y más.
           </p>
         </div>
@@ -32,7 +32,7 @@ export default function ContactPage() {
               <div key={item.label} className="flex items-start gap-4 p-4 rounded-xl" style={{ backgroundColor: '#F1E7D6' }}>
                 <span className="text-xl">{item.icon}</span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#B3B3B3' }}>{item.label}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: '#5e7a87' }}>{item.label}</p>
                   {item.href ? (
                     <a href={item.href} className="font-medium mt-0.5 block transition-colors hover:opacity-80" style={{ color: '#466D7A' }}>
                       {item.value}
@@ -54,7 +54,7 @@ export default function ContactPage() {
 
             {/* Social links */}
             <div className="pt-4">
-              <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: '#B3B3B3' }}>Síguenos</p>
+              <p className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: '#5e7a87' }}>Síguenos</p>
               <div className="flex gap-3">
                 {[
                   { href: 'https://www.facebook.com/Janarealestatee/', label: 'Facebook' },
@@ -72,13 +72,13 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div className="lg:col-span-3 bg-white rounded-2xl p-8 shadow-sm border" style={{ borderColor: 'rgba(179,179,179,0.2)' }}>
+          <div className="lg:col-span-3 bg-white rounded-2xl p-8 shadow-sm border" style={{ borderColor: '#d0dade' }}>
             <LeadForm
               title="Envíanos un Mensaje"
               subtitle="Completa el formulario y te respondemos en menos de 24 horas."
               assignedAgent="José L. González Reyes"
             />
-            <p className="mt-6 text-xs text-center" style={{ color: '#B3B3B3' }}>
+            <p className="mt-6 text-xs text-center" style={{ color: '#5e7a87' }}>
               José L. González Reyes, Lic. C21635 · JANA REAL ESTATE LLC · MLS Office #436
             </p>
           </div>

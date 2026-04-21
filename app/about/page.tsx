@@ -53,7 +53,7 @@ export default function AboutPage() {
             Bienes Raíces en el Oeste de PR
           </span>
           <h1 className="mt-3 text-5xl font-bold text-white tracking-tight">Conoce al Equipo</h1>
-          <p className="mt-4 text-lg" style={{ color: 'rgba(255,255,255,0.65)' }}>
+          <p className="mt-4 text-lg" style={{ color: 'rgba(255,255,255,0.90)' }}>
             Licenciados, locales y dedicados a ayudarte a comprar, vender o invertir en el occidente de Puerto Rico.
           </p>
         </div>
@@ -74,8 +74,8 @@ export default function AboutPage() {
                 priority
               />
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl px-5 py-3 shadow-lg border" style={{ borderColor: 'rgba(179,179,179,0.2)' }}>
-              <p className="text-xs font-medium uppercase tracking-wider" style={{ color: '#B3B3B3' }}>Licencia</p>
+            <div className="absolute -bottom-4 -right-4 bg-white rounded-xl px-5 py-3 shadow-lg border" style={{ borderColor: '#d0dade' }}>
+              <p className="text-xs font-medium uppercase tracking-wider" style={{ color: '#5e7a87' }}>Licencia</p>
               <p className="font-bold" style={{ color: '#466D7A' }}>C21635</p>
             </div>
           </div>
@@ -88,12 +88,12 @@ export default function AboutPage() {
             <h2 className="mt-2 text-3xl font-bold tracking-tight" style={{ color: '#466D7A' }}>
               José L. González Reyes
             </h2>
-            <p className="mt-1 text-sm" style={{ color: '#B3B3B3' }}>JANA REAL ESTATE LLC · MLS Oficina #436</p>
+            <p className="mt-1 text-sm" style={{ color: '#5e7a87' }}>JANA REAL ESTATE LLC · MLS Oficina #436</p>
 
-            <p className="mt-5 leading-relaxed text-sm" style={{ color: '#466D7A', opacity: 0.85 }}>
+            <p className="mt-5 leading-relaxed text-sm" style={{ color: '#466D7A' }}>
               José dirige Jana Real Estate LLC con enfoque en el occidente de Puerto Rico. Registrado en el Puerto Rico Realtors® MLS (Oficina #436) y partner verificado de ClasificadosOnline desde 2022, ha cerrado 11 transacciones por más de $2M — ayudando a familias e inversores a encontrar la propiedad correcta en Moca, San Sebastián, Isabela, Aguada, Mayagüez y más.
             </p>
-            <p className="mt-4 leading-relaxed text-sm" style={{ color: '#466D7A', opacity: 0.85 }}>
+            <p className="mt-4 leading-relaxed text-sm" style={{ color: '#466D7A' }}>
               Ya sea que busques una vivienda familiar, un proyecto de remodelación, un terreno o una propiedad de inversión — José aporta conocimiento local honesto y orientación práctica en cada transacción.
             </p>
 
@@ -102,7 +102,7 @@ export default function AboutPage() {
               {agentStats.map(stat => (
                 <div key={stat.label} className="rounded-xl p-4 text-center" style={{ backgroundColor: '#F1E7D6' }}>
                   <p className="text-2xl font-bold" style={{ color: '#EF8853' }}>{stat.value}</p>
-                  <p className="text-xs mt-0.5" style={{ color: '#B3B3B3' }}>{stat.label}</p>
+                  <p className="text-xs mt-0.5" style={{ color: '#5e7a87' }}>{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -150,7 +150,7 @@ export default function AboutPage() {
                 key={member.name}
                 className="bg-white rounded-2xl p-6 transition-all hover:shadow-md"
                 style={{
-                  border: member.primary ? '2px solid #1EB39F' : '1px solid rgba(179,179,179,0.2)',
+                  border: member.primary ? '2px solid #1EB39F' : '1px solid #d0dade',
                 }}
               >
                 {/* Avatar */}
@@ -174,10 +174,10 @@ export default function AboutPage() {
                 )}
 
                 <h3 className="font-bold text-lg" style={{ color: '#466D7A' }}>{member.name}</h3>
-                <p className="text-sm" style={{ color: '#B3B3B3' }}>{member.role} · Lic. {member.license}</p>
-                <p className="mt-3 text-sm leading-relaxed" style={{ color: '#466D7A', opacity: 0.8 }}>{member.bio}</p>
+                <p className="text-sm" style={{ color: '#5e7a87' }}>{member.role} · Lic. {member.license}</p>
+                <p className="mt-3 text-sm leading-relaxed" style={{ color: '#466D7A' }}>{member.bio}</p>
 
-                <div className="mt-4 pt-4 space-y-1" style={{ borderTop: '1px solid rgba(179,179,179,0.2)' }}>
+                <div className="mt-4 pt-4 space-y-1" style={{ borderTop: '1px solid #d0dade' }}>
                   <a href={`tel:+1${member.phone.replace(/\D/g, '')}`}
                     className="block text-sm font-medium transition-colors hover:opacity-80"
                     style={{ color: '#1EB39F' }}>
@@ -204,7 +204,7 @@ export default function AboutPage() {
             Dónde Trabajamos
           </span>
           <h2 className="mt-2 text-3xl font-bold tracking-tight" style={{ color: '#466D7A' }}>Área de Servicio</h2>
-          <p className="mt-3 text-sm" style={{ color: '#B3B3B3' }}>
+          <p className="mt-3 text-sm" style={{ color: '#5e7a87' }}>
             Nos especializamos en transacciones residenciales, comerciales y de terrenos en el occidente de Puerto Rico.
           </p>
 
@@ -214,7 +214,7 @@ export default function AboutPage() {
                 key={area}
                 href={`/properties?location=${encodeURIComponent(area)}`}
                 className="group flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium transition-all border"
-                style={{ backgroundColor: '#F1E7D6', color: '#466D7A', borderColor: 'rgba(179,179,179,0.2)' }}
+                style={{ backgroundColor: '#F1E7D6', color: '#466D7A', borderColor: '#d0dade' }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#1EB39F'
                   ;(e.currentTarget as HTMLAnchorElement).style.color = 'white'
@@ -223,7 +223,7 @@ export default function AboutPage() {
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLAnchorElement).style.backgroundColor = '#F1E7D6'
                   ;(e.currentTarget as HTMLAnchorElement).style.color = '#466D7A'
-                  ;(e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(179,179,179,0.2)'
+                  ;(e.currentTarget as HTMLAnchorElement).style.borderColor = '#d0dade'
                 }}
               >
                 <span>📍</span>
@@ -235,11 +235,11 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="mt-10 h-48 rounded-2xl flex items-center justify-center border" style={{ backgroundColor: '#F1E7D6', borderColor: 'rgba(179,179,179,0.2)' }}>
+          <div className="mt-10 h-48 rounded-2xl flex items-center justify-center border" style={{ backgroundColor: '#F1E7D6', borderColor: '#d0dade' }}>
             <div className="text-center">
               <p className="text-3xl mb-2">🗺️</p>
               <p className="font-medium" style={{ color: '#466D7A' }}>Occidente de Puerto Rico</p>
-              <p className="text-sm mt-1" style={{ color: '#B3B3B3' }}>Moca · San Sebastián · Isabela · Aguada · Añasco · Mayagüez · Hatillo · Arecibo</p>
+              <p className="text-sm mt-1" style={{ color: '#5e7a87' }}>Moca · San Sebastián · Isabela · Aguada · Añasco · Mayagüez · Hatillo · Arecibo</p>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@ export default function AboutPage() {
             <h2 className="mt-3 text-3xl font-bold text-white leading-tight">
               Encontremos Tu Propiedad en el Occidente de Puerto Rico
             </h2>
-            <p className="mt-4 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.65)' }}>
+            <p className="mt-4 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.90)' }}>
               Contáctanos hoy para una consulta gratuita sin compromiso.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -266,13 +266,13 @@ export default function AboutPage() {
               ].map(s => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                   className="text-sm transition-colors hover:text-white"
-                  style={{ color: 'rgba(255,255,255,0.6)' }}>
+                  style={{ color: 'rgba(255,255,255,0.85)' }}>
                   {s.label} ↗
                 </a>
               ))}
             </div>
           </div>
-          <div className="rounded-2xl p-8" style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}>
+          <div className="rounded-2xl p-8" style={{ backgroundColor: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.22)' }}>
             <LeadForm
               variant="dark"
               title="Contacta al Equipo"

@@ -64,7 +64,7 @@ export default async function HomePage() {
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <span
             className="inline-block text-xs font-semibold tracking-widest uppercase mb-6 px-4 py-2 rounded-full border text-white/80"
-            style={{ borderColor: 'rgba(255,255,255,0.3)', backdropFilter: 'blur(8px)' }}
+            style={{ borderColor: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(8px)' }}
           >
             Especialistas en el Oeste de Puerto Rico
           </span>
@@ -84,14 +84,14 @@ export default async function HomePage() {
             {stats.map(stat => (
               <div key={stat.label} className="text-center">
                 <p className="text-2xl font-bold" style={{ color: '#1EB39F' }}>{stat.value}</p>
-                <p className="text-xs text-white/60 mt-0.5">{stat.label}</p>
+                <p className="text-xs text-white/85 mt-0.5">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-white/78" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
@@ -140,7 +140,7 @@ export default async function HomePage() {
             <h2 className="mt-2 text-4xl font-bold tracking-tight" style={{ color: '#466D7A' }}>
               Tus Expertos Locales en el Oeste de PR
             </h2>
-            <p className="mt-4 max-w-xl mx-auto text-sm leading-relaxed" style={{ color: '#B3B3B3' }}>
+            <p className="mt-4 max-w-xl mx-auto text-sm leading-relaxed" style={{ color: '#5e7a87' }}>
               Jana Real Estate LLC se especializa en Moca, San Sebastián, Isabela, Aguada, Añasco, Mayagüez, Hatillo y Arecibo — con acceso MLS y un historial probado.
             </p>
           </div>
@@ -169,7 +169,7 @@ export default async function HomePage() {
               <h2 className="mt-3 text-4xl font-bold text-white tracking-tight leading-tight">
                 Encontremos Tu Propiedad Ideal Juntos
               </h2>
-              <p className="mt-4 leading-relaxed text-sm" style={{ color: 'rgba(255,255,255,0.65)' }}>
+              <p className="mt-4 leading-relaxed text-sm" style={{ color: 'rgba(255,255,255,0.90)' }}>
                 Ya sea comprando, vendiendo o invirtiendo — nuestro equipo está listo para guiarte. Déjanos tus datos y te conectamos con el especialista correcto.
               </p>
               <div className="mt-8 space-y-4">
@@ -198,7 +198,7 @@ export default async function HomePage() {
                 </a>
                 <a href="tel:+19394383061"
                   className="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all hover:opacity-90"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.15)', color: 'white' }}>
+                  style={{ backgroundColor: 'rgba(255,255,255,0.22)', color: 'white' }}>
                   📞 (939) 438-3061
                 </a>
               </div>
@@ -206,7 +206,7 @@ export default async function HomePage() {
 
             <div
               className="rounded-2xl p-8"
-              style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
+              style={{ backgroundColor: 'rgba(255,255,255,0.14)', border: '1px solid rgba(255,255,255,0.22)' }}
             >
               <LeadForm
                 variant="dark"

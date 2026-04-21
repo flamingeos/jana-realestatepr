@@ -45,9 +45,9 @@ export default function LeadForm({
 
   const inputStyle = isDark
     ? { backgroundColor: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.2)', color: 'white' }
-    : { backgroundColor: '#F1E7D6', borderColor: 'rgba(179,179,179,0.4)', color: '#466D7A' }
+    : { backgroundColor: '#F1E7D6', borderColor: '#b8c8ce', color: '#466D7A' }
 
-  const labelColor = isDark ? 'rgba(255,255,255,0.65)' : '#466D7A'
+  const labelColor = isDark ? 'rgba(255,255,255,0.90)' : '#466D7A'
   const inputClass = 'w-full px-4 py-3 text-sm rounded-xl border focus:outline-none focus:ring-2 transition-all placeholder:opacity-50'
 
   if (status === 'success') {
@@ -59,7 +59,7 @@ export default function LeadForm({
           </svg>
         </div>
         <h3 className="text-xl font-bold" style={{ color: isDark ? 'white' : '#466D7A' }}>¡Mensaje Recibido!</h3>
-        <p className="mt-2 text-sm" style={{ color: isDark ? 'rgba(255,255,255,0.65)' : '#B3B3B3' }}>
+        <p className="mt-2 text-sm" style={{ color: isDark ? 'rgba(255,255,255,0.90)' : '#B3B3B3' }}>
           Nos pondremos en contacto contigo en menos de 24 horas.
         </p>
         <button
@@ -78,7 +78,7 @@ export default function LeadForm({
       {title && (
         <div className="mb-5">
           <h3 className="text-xl font-bold" style={{ color: isDark ? 'white' : '#466D7A' }}>{title}</h3>
-          {subtitle && <p className="mt-1 text-sm" style={{ color: isDark ? 'rgba(255,255,255,0.65)' : '#B3B3B3' }}>{subtitle}</p>}
+          {subtitle && <p className="mt-1 text-sm" style={{ color: isDark ? 'rgba(255,255,255,0.90)' : '#B3B3B3' }}>{subtitle}</p>}
         </div>
       )}
 
